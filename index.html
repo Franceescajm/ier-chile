@@ -112,6 +112,15 @@ h2{font-weight:800;font-size:clamp(1.9rem,5vw,2.7rem);line-height:1.08;letter-sp
 .cantar-grid{column-count:2;column-gap:.75rem;margin-top:2.5rem}
 .cantar-grid img{width:100%;height:auto;border-radius:14px;margin-bottom:.75rem;break-inside:avoid}
 @media (min-width:48rem){.cantar-grid{column-count:3;column-gap:1rem}.cantar-grid img{border-radius:16px;margin-bottom:1rem}}
+@media (min-width:48rem) and (hover:hover){
+  .cantar-grid{display:flex;column-count:auto;column-gap:normal;gap:.6rem;height:clamp(24rem,46vw,34rem)}
+  .cantar-grid img{flex:1 1 0;min-width:0;width:auto;height:100%;margin:0;object-fit:cover;cursor:pointer;transition:flex .7s cubic-bezier(.2,.7,.2,1)}
+  .cantar-grid:hover img,.cantar-grid:focus-within img{flex:.55}
+  .cantar-grid img:hover,.cantar-grid img:focus{flex:6}
+  .cantar-grid img:focus{outline:none}
+  .cantar-grid img:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+}
+@media (prefers-reduced-motion:reduce){.cantar-grid img{transition:none}}
 
 /* Calendario */
 .week{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr))}
@@ -304,6 +313,12 @@ footer b{color:var(--fg);font-family:"Bricolage Grotesque",sans-serif}
     es.forEach(function(e){if(e.isIntersecting){f.classList.remove('pre');io.disconnect();}});
   },{threshold:.3});
   io.observe(f);
+})();
+</script>
+<script>
+(function(){
+  if(!(window.matchMedia&&window.matchMedia('(min-width:48rem) and (hover:hover)').matches))return;
+  document.querySelectorAll('.cantar-grid img').forEach(function(i){i.setAttribute('tabindex','0');});
 })();
 </script>
 </body>
