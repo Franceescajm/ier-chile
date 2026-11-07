@@ -76,6 +76,21 @@ h2{font-weight:800;font-size:clamp(1.9rem,5vw,2.7rem);line-height:1.08;letter-sp
 .about p{margin:0 0 1rem;max-width:34rem}
 @media (max-width:52rem){.about{grid-template-columns:1fr;gap:2rem}}
 
+/* Pastores */
+.pastors{display:grid;gap:3rem;grid-template-columns:1.1fr .9fr;align-items:center}
+.pastors-photo{border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:#000}
+.pastors-photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.8s cubic-bezier(.2,.7,.2,1),opacity 1.2s ease}
+.pastors-photo.pre img{transform:scale(1.18);opacity:0}
+.pastors-photo:hover img{transform:scale(1.04);transition-duration:.8s}
+.invite{margin:1.25rem 0 1.5rem;padding-left:1rem;border-left:4px solid var(--yellow);max-width:30rem;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:clamp(1.25rem,3vw,1.65rem);line-height:1.3;letter-spacing:-.015em}
+.invite cite{display:block;margin-top:.5rem;font-family:"Figtree",system-ui,sans-serif;font-style:normal;font-weight:600;font-size:1rem;letter-spacing:0;color:var(--muted)}
+
+/* Qué creemos */
+.faith{border-top:1px solid var(--line)}
+.faith p{margin:0;max-width:40rem;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:clamp(1.5rem,4vw,2.4rem);line-height:1.2;letter-spacing:-.02em}
+.pastors p{margin:0 0 1rem;max-width:32rem}
+@media (max-width:52rem){.pastors{grid-template-columns:1fr;gap:2rem}.pastors-photo{order:-1}}
+
 /* Galería */
 .gallery-sec{background:var(--bg)}
 .gallery{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))}
@@ -84,6 +99,19 @@ h2{font-weight:800;font-size:clamp(1.9rem,5vw,2.7rem);line-height:1.08;letter-sp
 .tile img,.tile video{width:100%;height:100%;object-fit:cover}
 .tile figcaption{margin-top:.6rem;font-weight:700}
 .tile figcaption small{display:block;font-weight:400;color:var(--muted);font-size:.93rem;line-height:1.4}
+
+/* Logo */
+.brand{display:inline-flex;align-items:center}
+.logo{height:2.6rem;width:auto;display:block}
+.foot-brand{display:flex;align-items:center;gap:.9rem;flex-wrap:wrap}
+.foot-brand .logo{height:2rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .logo{background:#fff;border-radius:8px;padding:4px 8px}}
+:root[data-theme="dark"] .logo{background:#fff;border-radius:8px;padding:4px 8px}
+
+/* Cantar 2026 */
+.cantar-grid{column-count:2;column-gap:.75rem;margin-top:2.5rem}
+.cantar-grid img{width:100%;height:auto;border-radius:14px;margin-bottom:.75rem;break-inside:avoid}
+@media (min-width:48rem){.cantar-grid{column-count:3;column-gap:1rem}.cantar-grid img{border-radius:16px;margin-bottom:1rem}}
 
 /* Calendario */
 .week{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr))}
@@ -119,7 +147,7 @@ footer b{color:var(--fg);font-family:"Bricolage Grotesque",sans-serif}
 <header class="hero" id="inicio">
   <div class="wrap">
     <nav class="nav" aria-label="Principal">
-      <a class="brand" href="#inicio">Iglesia Evangélica Reformada</a>
+      <a class="brand" href="#inicio" aria-label="Iglesia Evangélica Reformada, inicio"><img class="logo" src="media/logo-ier.png" alt="IER, Iglesia Evangélica Reformada"></a>
       <ul>
         <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#domingo">Un domingo con nosotros</a></li>
@@ -149,10 +177,21 @@ footer b{color:var(--fg);font-family:"Bricolage Grotesque",sans-serif}
     <img src="media/congregacion.jpg" alt="La congregación de pie durante la alabanza, con la cruz de madera al fondo" loading="lazy">
     <div>
       <h2>Somos una familia en el barrio</h2>
-      <p>La Iglesia Evangélica Reformada se reúne en Lo Espejo. Aquí hay jóvenes, adultos y abuelos que cantan juntos, oran unos por otros y se acompañan durante la semana.</p>
-      <p>Si es tu primera vez, no te preocupes por cómo llegar vestido ni qué decir. Llega unos minutos antes y alguien te recibe.</p>
+      <p>En la Iglesia Evangélica Reformada de Lo Espejo compartimos la vida en comunidad: desde niños y jóvenes hasta personas mayores, todos cantamos, oramos y nos apoyamos semana a semana.</p>
+      <p>Si es tu primera vez, ven tal como eres. No hay códigos de vestimenta ni formalismos; llega unos minutos antes y te recibiremos con gusto.</p>
       <a class="btn primary" href="#calendario">Ver horarios</a>
     </div>
+  </div>
+</section>
+
+<section id="pastores" style="padding-top:0">
+  <div class="wrap pastors">
+    <div>
+      <h2>Nuestros pastores</h2>
+      <blockquote class="invite">“Esta casa también es tuya. Hay un lugar en la mesa para ti y tu familia, y vamos a caminar contigo.”<cite>Tus pastores</cite></blockquote>
+      <p>Queremos estar cerca de ti. Si necesitas oración, quieres saber más de la iglesia o simplemente conversar, escríbenos a nuestro Instagram o pásanos a saludar al finalizar el culto. ¡Los pastores estamos para acompañarte!</p>
+    </div>
+    <div class="pastors-photo"><img src="media/pastores.jpg" alt="Los pastores de la iglesia, sentados juntos y tomados de la mano" loading="lazy"></div>
   </div>
 </section>
 
@@ -177,6 +216,22 @@ footer b{color:var(--fg);font-family:"Bricolage Grotesque",sans-serif}
         <div class="m"><video src="media/comunidad.mp4" poster="media/comunidad_poster.jpg" controls playsinline preload="none" aria-label="Video de la comunidad durante el culto"></video></div>
         <figcaption>En comunidad<small>Adoramos juntos, cada uno a su manera.</small></figcaption>
       </figure>
+    </div>
+  </div>
+</section>
+
+<section id="creemos" class="faith">
+  <div class="wrap">
+    <h2>Qué creemos</h2>
+    <p>Creemos que la Iglesia no es un edificio, sino una familia unida por la fe en Jesucristo, llamada a caminar juntas en amor, gracia y verdad.</p>
+    <div class="cantar-grid">
+      <img src="media/cantar1.jpg" alt="Una mujer y un hombre sonriendo con carteles en el marco de Cantar 2026" loading="lazy">
+      <img src="media/cantar2.jpg" alt="Un hombre sonriente con los brazos cruzados en el marco de Cantar 2026" loading="lazy">
+      <img src="media/cantar3.jpg" alt="Dos jóvenes abrazadas con carteles en el marco de Cantar 2026" loading="lazy">
+      <img src="media/cantar4.jpg" alt="Una mujer sonriendo con un cartel en el marco de Cantar 2026" loading="lazy">
+      <img src="media/cantar5.jpg" alt="Dos mujeres sonriendo con carteles en el marco de Cantar 2026" loading="lazy">
+      <img src="media/cantar6.jpg" alt="Una pareja de adultos mayores con carteles en el marco de Cantar 2026" loading="lazy">
+      <img src="media/cantar7.jpg" alt="Un joven sonriendo con un cartel en el marco de Cantar 2026" loading="lazy">
     </div>
   </div>
 </section>
@@ -224,7 +279,7 @@ footer b{color:var(--fg);font-family:"Bricolage Grotesque",sans-serif}
 
 <footer>
   <div class="wrap">
-    <span><b>Iglesia Evangélica Reformada</b> · Lo Espejo, Chile</span>
+    <span class="foot-brand"><img class="logo" src="media/logo-ier.png" alt="IER"><span>Iglesia Evangélica Reformada · Lo Espejo, Chile</span></span>
     <span>Domingos: escuela dominical 10:00, culto 11:00</span>
   </div>
 </footer>
@@ -236,6 +291,19 @@ footer b{color:var(--fg);font-family:"Bricolage Grotesque",sans-serif}
   if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     v.removeAttribute('autoplay');v.pause();v.setAttribute('controls','');
   }
+})();
+</script>
+<script>
+(function(){
+  var f=document.querySelector('.pastors-photo');
+  if(!f)return;
+  var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(rm||!('IntersectionObserver' in window))return;
+  f.classList.add('pre');
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){f.classList.remove('pre');io.disconnect();}});
+  },{threshold:.3});
+  io.observe(f);
 })();
 </script>
 </body>
